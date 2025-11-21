@@ -1,0 +1,48 @@
+/* === Стили из внешнего файла CSS === */
+
+/* Стили для всех заголовков h1 */
+h1 {
+    color: #007bff;
+    font-family: Verdana, sans-serif;
+    margin-top: 30px;
+}
+
+/* Стили для всех input и textarea */
+input, textarea {
+    border: 1px solid #aaa;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+/* Кнопки */
+button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #fafafa;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+/* Кнопка с классом .primary-btn */
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Стиль disabled-кнопок */
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+}
+
+/* Стили таблицы */
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #999;
+}
