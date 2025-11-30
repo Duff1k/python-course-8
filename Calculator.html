@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online calculator</title>
+    <link rel="stylesheet" href="css/calculator_style.css">
+</head>
+<body>
+    <div class="calculator">
+            <div class="display">
+            <input type="text" id="result" readonly>
+        </div>
+
+            <div class="buttons">
+            <button class="btn clear" onclick="clearAll()">C</button>
+            <button class="btn operation" onclick="appendToDisplay('+')">+</button>
+            <button class="btn operation" onclick="appendToDisplay('-')">-</button>
+            <button class="btn operation" onclick="appendToDisplay('*')">*</button>
+
+            <button class="btn number" onclick="appendToDisplay('7')">7</button>
+            <button class="btn number" onclick="appendToDisplay('8')">8</button>
+            <button class="btn number" onclick="appendToDisplay('9')">9</button>
+            <button class="btn operation" onclick="appendToDisplay('/')">/</button>
+
+            <button class="btn number" onclick="appendToDisplay('4')">4</button>
+            <button class="btn number" onclick="appendToDisplay('5')">5</button>
+            <button class="btn number" onclick="appendToDisplay('6')">6</button>
+            <button class="btn equals" onclick="calculate()">=</button>
+
+            <button class="btn number" onclick="appendToDisplay('1')">1</button>
+            <button class="btn number" onclick="appendToDisplay('2')">2</button>
+            <button class="btn number" onclick="appendToDisplay('3')">3</button>
+            <button class="btn number" onclick="appendToDisplay('0')">0</button>
+
+            <button class="btn clear-history" onclick="clearHistory()">Clear history</button>
+        </div>
+
+        <div class="history">
+            <h2>History</h2>
+            <ul id="history-list"></ul>
+        </div>
+
+    </div>
+
+    <script src="js/calculator_script.js"></script>
+</body>
+</html>
