@@ -1,28 +1,94 @@
-h1 {
-    color: red;
-    font-family: Arial;
-    text-align: center;
-}
-
-#data-user-table {
-    color: darkgreen;
-    text-decoration: underline;
-}
-
-table, tr, th, td {
-    border: 1px solid;
-}
-
-#color-box {
-    width: 150px;
-    height: 150px;
-    background: lightgray;
+div.calculator{
     margin-top: 10px;
-    border: 1px solid #888
+    height: 270px;
+    width: 230px;
+    padding-top: 10px;
+    border-radius: 15px;
+    background-color: #1f1f1f;
+}
+.calculator > * {
+    background-color: #1f1f1f;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.common-button {
-    background: burlywood;
-    border-radius: 10px;
-    margin-right: 10px;
+.input-text{
+    display: block;
+    width: 204px;
+    text-align: right;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    outline: none;
+
+}
+#combination-text{
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#summary-text{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+td {
+    margin: 0;
+    padding: 0;
+}
+.common-button{
+    display: block;
+    width: 50px;
+    height: 35px;
+    font-size: 20px;
+    margin: 1px 1px 1px 1px;
+    color: white;
+    border-radius: 5px;
+}
+
+.number-button{
+    background-color: #3d3d3d;
+}
+
+.option-button{
+    background-color: #222222;
+}
+
+.option-button:disabled{
+    background-color: #222222;
+    border-color: buttonborder;
+}
+
+#summary-button{
+    width: 104px;
+    background-color: #8f0e0e;
+}
+#summary-button{
+    width: 104px;
+    background-color: #8f0e0e;
+    border-color: #1b0303;
+}
+
+#history > * {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+#history-header > *{
+    display: inline-block;
+}
+
+#clear-history{
+    margin-left: 55px;
+    margin-right: 15px;
+}
+#history > li{
+    list-style: decimal;
+    list-style-position: inside;
+    margin-left: 15px;
+}
+#history{
+    height: 100px;
 }
