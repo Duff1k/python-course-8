@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Интерактивный Веб-Калькулятор</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f1f3f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    .calculator {
+        width: 300px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        margin-bottom: 25px;
+    }
+
+    #display {
+        width: 100%;
+        font-size: 26px;
+        padding: 10px;
+        height: 50px;
+        text-align: right;
+        border: none;
+        background: #ececec;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    .btn-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .btn {
+        font-size: 22px;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    /* Цвета кнопок */
+    .btn.number {
+        background: #fff;
+        border: 1px solid #ccc;
+    }
+    .btn.number:hover {
+        background: #e7e7e7;
+    }
+
+    .btn.operator {
+        background: #ffcf70;
+    }
+    .btn.operator:hover {
+        background: #ffb930;
+    }
+
+    .btn.equals {
+        background: #70b8ff;
+        color: white;
+    }
+    .btn.equals:hover {
+        background: #4ea9ff;
+    }
+
+    .btn.clear {
+        background: #ff7d7d;
+        color: white;
+    }
+    .btn.clear:hover {
+        background: #ff5c5c;
+    }
+
+    .btn.backspace {
+        background: #ffc3d1;
+        color: #7a0014;
+    }
+    .btn.backspace:hover {
+        background: #ff9eb7;
+    }
+
+    /* История */
+    .history {
+        width: 300px;
+        background: white;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .history h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    #historyList {
+        max-height: 200px;
+        overflow-y: auto;
+        padding-left: 15px;
+        font-family: Consolas, monospace;
+    }
+
+    .history-btn {
+        margin-top: 10px;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        background: #8585ff;
+        color: white;
+        cursor: pointer;
+    }
+
+    .history-btn:hover {
+        background: #5c5cff;
+    }
+</style>
+</head>
+<body>
+
+<h1>Веб-Калькулятор</h1>
+
+<div class="calculator">
+    <input id="display" type="text" readonly>
+
+    <div class="btn-grid">
+
+        <!-- Новая кнопка backspace -->
+        <button class="btn backspace" data-action="backspace">⌫</button>
+
+        <button class="btn clear" style="grid-column: span 3">C</button>
+
+        <button class="btn number" data-val="7">7</button>
+        <button class="btn number" data-val="8">8</button>
+        <button class="btn number" data-val="9">9</button>
+        <button class="btn operator" data-val="/">÷</button>
+
+        <button class="btn number" data-val="4">4</button>
+        <button class="btn number" data-val="5">5</button>
+        <button class="btn number" data-val="6">6</button>
+        <button class="btn operator" data-val="*">×</button>
+
+        <button class="btn number" data-val="1">1</button>
+        <button class="btn number" data-val="2">2</button>
+        <button class="btn number" data-val="3">3</button>
+        <button class="btn operator" data-val="-">−</button>
+
+        <button class="btn number" data-val="0">0</button>
+        <button class="btn number" data-val=".">.</button>
+        <button class="btn equals">=</button>
+        <button class="btn operator" data-val="+">+</button>
+    </div>
+</div>
+
+<div class="history">
+    <h2>История операций</h2>
+    <ul id="historyList"></ul>
+    <button class="history-btn" id="clearHistory">Очистить историю</button>
+</div>
+
+<script>
+    const display = document.getElementById("display");
+    const historyList = document.getElementById("historyList");
+    const buttons = document.querySelectorAll(".btn");
+    let current = "";
+
+    function updateDisplay() {
+        display.value = current;
+    }
+
+    function addToHistory(expr, result) {
+        const li = document.createElement("li");
+        li.textContent = `${expr} = ${result}`;
+        historyList.appendChild(li);
+    }
+
+    function clearHistory() {
+        historyList.innerHTML = "";
+    }
+
+    document.getElementById("clearHistory").onclick = clearHistory;
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const value = btn.getAttribute("data-val");
+            const action = btn.getAttribute("data-action");
+
+            // === Backspace (удалить последний символ) ===
+            if (action === "backspace") {
+                current = current.slice(0, -1);
+                updateDisplay();
+                return;
+            }
+
+            // цифры / операторы
+            if (btn.classList.contains("number") || btn.classList.contains("operator")) {
+                current += value;
+                updateDisplay();
+                return;
+            }
+
+            // Очистка
+            if (btn.classList.contains("clear")) {
+                current = "";
+                updateDisplay();
+                return;
+            }
+
+            // Вычисление
+            if (btn.classList.contains("equals")) {
+                if (!current) return;
+
+                try {
+                    const result = eval(current);
+                    addToHistory(current, result);
+                    current = String(result);
+                } catch {
+                    current = "Ошибка";
+                }
+                updateDisplay();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
