@@ -1,0 +1,101 @@
+h1 {
+    color: blue;
+    font-family: Arial;
+    text-align: center;
+}
+
+#data-user-table {
+    color: darkgreen;
+    text-decoration: underline;
+}
+
+h2 {
+    color: darkblue;
+    font-family: Arial;
+    text-align: center;
+}
+
+.display {
+    width: 200px;
+    height: 40px;
+    font-size: 24px;
+    text-align: right;
+    padding: 10px;
+    display: block;
+    margin: 5px auto;
+    border: 2px solid #888;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.buttons {
+    width: 260px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    margin: 2px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table, tr, th, td {
+    border: 1px solid;
+}
+
+.btn-number {
+    background: lightblue;
+}
+
+#color-box {
+    width: 150px;
+    height: 150px;
+    background: lightgray;
+    margin-top: 10px;
+    border: 1px solid #888;
+}
+
+.btn-operator {
+    background: skyblue;
+}
+
+.btn-equals {
+    background: lightgreen;
+}
+
+.btn-clear {
+    background: tomato;
+}
+
+.common-button {
+    background: #f5f5f5;
+    width: 100px;
+    height: 50px;
+    display: block;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.history-list {
+    width: 300px;
+    margin: 20px auto;
+    border: 1px solid #333;
+    padding: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f5f5f5;
+}
+
+.history-item {
+    padding: 5px;
+    border-bottom: 1px solid #333;
+}

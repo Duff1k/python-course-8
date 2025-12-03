@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="background-color: LemonChiffon;">
+
+<h1>Калькулятор</h1>
+
+<input type="text" id="display" readonly class="display">
+
+<div class="buttons">
+    <button onclick="addToDisplay('/')" class="btn-operator">/</button>
+    <button onclick="addToDisplay('7')" class="btn-number">7</button>
+    <button onclick="addToDisplay('8')" class="btn-number">8</button>
+    <button onclick="addToDisplay('9')" class="btn-number">9</button>
+    <button onclick="addToDisplay('+')" class="btn-operator">+</button>
+
+    <button onclick="addToDisplay('4')" class="btn-number">4</button>
+    <button onclick="addToDisplay('5')" class="btn-number">5</button>
+    <button onclick="addToDisplay('6')" class="btn-number">6</button>
+    <button onclick="addToDisplay('-')" class="btn-operator">-</button>
+
+    <button onclick="addToDisplay('1')" class="btn-number">1</button>
+    <button onclick="addToDisplay('2')" class="btn-number">2</button>
+    <button onclick="addToDisplay('3')" class="btn-number">3</button>
+    <button onclick="addToDisplay('*')" class="btn-operator">*</button>
+
+    <button onclick="addToDisplay('0')" class="btn-number">0</button>
+    <button onclick="addToDisplay('.')" class="btn-number">.</button>
+    <button onclick="calculate()" class="btn-equals">=</button>
+    <button onclick="clearDisplay()" class="btn-clear">C</button>
+</div>
+
+<h2>История вычислений</h2>
+<button onclick="clearHistory()" class="common-button">Очистить историю</button>
+<div id="history-list" class="history-list"></div>
+
+<center>
+    <img src="https://www.kommercheskaya.ru/new/files/fb/ef/hrudenbuhgalteraua-bzhejp.cropped1500x500.jpg"
+         width="400" height="130" alt="Бухгалтер">
+</center>
+
+<script src="js/calculator.js"></script>
+</body>
+</html>
