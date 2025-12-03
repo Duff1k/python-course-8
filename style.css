@@ -1,0 +1,428 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Заголовок */
+.header {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 25px 40px;
+    text-align: center;
+    border-bottom: 4px solid #3b82f6;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Основной контент */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px;
+}
+
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Секция калькулятора */
+.calculator-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Дисплей калькулятора */
+.display-container {
+    background: #1f2937;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.expression {
+    color: #9ca3af;
+    font-size: 1.2rem;
+    min-height: 30px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.display {
+    color: white;
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 60px;
+}
+
+/* Клавиатура калькулятора */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Цвета кнопок по типам */
+.btn.number {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.btn.number:hover {
+    background: #e5e7eb;
+}
+
+.btn.number.zero {
+    grid-column: span 2;
+}
+
+.btn.operator {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn.operator:hover {
+    background: #d97706;
+}
+
+.btn.equals {
+    background: #10b981;
+    color: white;
+    grid-column: span 2;
+}
+
+.btn.equals:hover {
+    background: #059669;
+}
+
+.btn.special {
+    background: #ef4444;
+    color: white;
+}
+
+.btn.special:hover {
+    background: #dc2626;
+}
+
+/* Панель аналитических функций */
+.analytics-panel {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px solid #e2e8f0;
+}
+
+.analytics-panel h3 {
+    color: #475569;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.analytics-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.btn.analytics {
+    background: #8b5cf6;
+    color: white;
+    font-size: 1.2rem;
+    height: 50px;
+}
+
+.btn.analytics:hover {
+    background: #7c3aed;
+}
+
+/* Секция истории */
+.history-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.history-header h3 {
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.btn.history-btn {
+    background: #3b82f6;
+    color: white;
+    font-size: 1rem;
+    height: 45px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn.history-btn:hover {
+    background: #2563eb;
+}
+
+/* Панель статистики */
+.stats-panel {
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.stats-panel h4 {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Список истории операций */
+.history-list-container {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    overflow: hidden;
+    flex-grow: 1;
+    max-height: 400px;
+}
+
+.history-list {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 350px;
+}
+
+.history-item {
+    background: #f9fafb;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #10b981;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.history-item:hover {
+    transform: translateX(5px);
+    background: #f3f4f6;
+}
+
+.history-expression {
+    font-family: 'Consolas', monospace;
+    font-size: 1.1rem;
+    color: #1f2937;
+}
+
+.history-result {
+    font-weight: bold;
+    color: #10b981;
+    font-size: 1.2rem;
+}
+
+.history-time {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 5px;
+}
+
+.empty-history {
+    text-align: center;
+    padding: 40px 20px;
+    color: #9ca3af;
+}
+
+.empty-history i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.empty-history .hint {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #6b7280;
+}
+
+/* Информация о последней операции */
+.last-operation {
+    background: #fef3c7;
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px solid #fbbf24;
+}
+
+.last-operation h4 {
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.last-operation p {
+    color: #78350f;
+    margin-bottom: 10px;
+}
+
+.file-info {
+    font-family: 'Consolas', monospace;
+    background: rgba(251, 191, 36, 0.2);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Подвал */
+.footer {
+    background: #1f2937;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 4px solid #3b82f6;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.features span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Прокрутка */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
