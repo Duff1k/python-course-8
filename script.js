@@ -30,7 +30,7 @@ function calculate() {
         // Безопасное вычисление выражения
         let result = eval(expr);
 
-        // Проверка на специальные значения
+        // Проверка на спец значения
         if (result === Infinity || result === -Infinity) {
             throw new Error("Деление на ноль!");
         }
