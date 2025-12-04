@@ -1,172 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Занятие по HTML</title>
-    <link rel="stylesheet" href="css/styles.css">
-
-    <script>
-      function showAlert() {
-        console.log("Вызвали функцию showAlert")
-      }
-
-
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>1. Заголовки</h1>
-<h2>Это h2 - подзаголовок</h2>
-<h3>Это h3</h3>
-<h4>Это h4</h4>
-<h5>Это h5</h5>
-<h6>Это h6</h6>
-<hr>
-<h1>2. Абзацы и тексты</h1>
-<p>Это обычный абзац текста. Абзацы используются для построения текста и разделения частей документа</p>
-<p>Тэги <b>b</b> и <strong>strong</strong> делают текст жирным</p>
-<p>Тэги <i>i</i> и <em>em</em> делают текст курсивным</p>
-<p>Использование нескольких тэгов внутри <i><b>i и b</b></i> cделают текст курсивным и жирным</p>
-<hr>
-<h1>3. Ссылки</h1>
-<a href="https://google.com">Это ссылка на Google</a>
-<br><br>
-<a href="https://google.com" target="_blank">Это ссылка на Google в соседней вкладке</a>
-<hr>
-<h1>4. Картинки</h1>
-<img src="https://i.pinimg.com/236x/c8/cc/24/c8cc24bba37a25c009647b8875aae0e3.jpg">
-<img src="https://i.pinimg.com/236x/c8/cc/24/c8cc24bba37a25c009647b8875aae0e3.jpg">
-<hr>
-<h1>5. Списки</h1>
-<h3>Маркированные списки (ul)</h3>
-<ul>
-  <li>Яблоко</li>
-  <li>Банан</li>
-  <li>Апельсин</li>
-</ul>
 
-<h3>Нумерованные списки (ol)</h3>
-<ol>
-  <li>Первый шаг</li>
-  <li>Второй шаг</li>
-  <li>Третий шаг</li>
-</ol>
-<hr>
+<main>
+    <section id="calculator">
+        <div id="display">
+            <div id="prev-operand"></div>
+            <div id="curr-operand">0</div>
+        </div>
+        
+        <div id="keyboard">
+            <button data-type="clear" onclick="app.clearAll()">AC</button>
+            <button data-type="delete" onclick="app.del()">DEL</button>
+            <button data-type="operator" onclick="app.op('÷')">÷</button>
+            
+            <button data-type="number" onclick="app.num('7')">7</button>
+            <button data-type="number" onclick="app.num('8')">8</button>
+            <button data-type="number" onclick="app.num('9')">9</button>
+            <button data-type="operator" onclick="app.op('*')">×</button>
+            
+            <button data-type="number" onclick="app.num('4')">4</button>
+            <button data-type="number" onclick="app.num('5')">5</button>
+            <button data-type="number" onclick="app.num('6')">6</button>
+            <button data-type="operator" onclick="app.op('+')">+</button>
+            
+            <button data-type="number" onclick="app.num('1')">1</button>
+            <button data-type="number" onclick="app.num('2')">2</button>
+            <button data-type="number" onclick="app.num('3')">3</button>
+            <button data-type="operator" onclick="app.op('-')">-</button>
+            
+            <button data-type="number" onclick="app.num('.')">.</button>
+            <button data-type="number" onclick="app.num('0')">0</button>
+            <button data-type="equals" onclick="app.calc()">=</button>
+        </div>
+    </section>
 
-<h1>6. Таблицы</h1>
-<table id="data-user-table">
-  <tr>
-    <th>ID</th>
-    <th>Имя</th>
-    <th>Возраст</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Аня</td>
-    <td>25</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Иван</td>
-    <td>29</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Олег</td>
-    <td>30</td>
-  </tr>
-</table>
-<hr>
+    <aside id="history">
+        <header>
+            <h3>Журнал</h3>
+            <button id="clear-history-btn" onclick="app.clearHistory()">Очистить</button>
+        </header>
+        <ul id="history-list">
+            <li data-status="empty">История пуста</li>
+        </ul>
+    </aside>
+</main>
 
-<h1>7. Поля ввода</h1>
-<label>Введите имя: </label>
-<input type="text" placeholder="Имя"><br><br>
-<label>Введите пароль: </label>
-<input type="password" placeholder="Пароль"><br><br>
-<label>Введите возраст</label>
-<input type="number" min="1" max="100"><br><br>
-<label>Введите дату</label>
-<input type="date"><br><br>
-<label>Выберите цвет:</label>
-<input type="color"><br><br>
-<label>Выберите файл:</label>
-<input type="file"><br><br>
-<label>Выберите пол:</label>
-<input type="radio" name="gender"> Мужчина
-<input type="radio" name="gender"> Женщина
-<br><br>
-<textarea>Напишите свой текст</textarea>
-
-<hr>
-
-<h1>8. Кнопки</h1>
-<button class="common-button">1-ая Обычная кнопка</button><br><br>
-<button class="common-button">2-ая Обычная кнопка</button><br><br>
-<button class="common-button">3-ая Обычная кнопка</button><br><br>
-<button disabled>Отключенная кнопка</button>
-
-<hr>
-<h1>9. Практика с JavaScrypt</h1>
-<button onclick="showAlert()">Показать всплывающее окно</button>
-<br>
-<h2>3. Изменить цвет блока</h2>
-<div id="color-box"></div>
-<button onclick="makeRed()">Сделай меня красным</button>
-<button onclick="makeGreen()">Сделай меня зеленым</button>
-<button onclick="makeBlue()">Сделай меня синим</button>
-<script>
-    function makeRed() {
-      document.getElementById("color-box").style.background = "red";
-      console.log("Сделать красным")
-    }
-
-    function makeGreen() {
-      document.getElementById("color-box").style.background = "green";
-      console.log("Сделать зеленым")
-    }
-
-    function makeBlue() {
-      document.getElementById("color-box").style.background = "blue";
-      console.log("Сделать синим")
-    }
-</script>
-<hr>
-<h2>Изменить текст</h2>
-<p id="changeTextId">Это текст будет изменен</p>
-<button onclick="changeText()">Изменить текст</button>
-<script>
-  function changeText(){
-    document.getElementById("changeTextId").textContent = "Текст успешно изменен";
-  }
-</script>
-<hr>
-<h2>Вычисление суммы</h2>
-<input id="num1" type="number" placeholder="Число 1">
-<input id="num2" type="number" placeholder="Число 2">
-<button onclick="sum()">Посчитать сумму</button>
-<p id="result"></p>
-
-<script>
-  function sum(){
-    let a = Number(document.getElementById("num1").value)
-    let b = Number(document.getElementById("num2").value)
-
-    document.getElementById("result").textContent = "Результат: " + (a+b);
-  }
-</script>
-<hr>
-
-<h2>Отправка запроса на Python приложение</h2>
-<button id="load-products-btn">Загрузить продукты</button>
-<table id="products-table">
-  <tr>
-    <th>ID</th>
-    <th>Название</th>
-    <th>Цена</th>
-  </tr>
-</table>
-
-
-<script src="js/products.js"></script>
-
+<script src="calc.js"></script>
 </body>
 </html>

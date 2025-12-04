@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0; padding: 0;
+}
+
+body {
+    background-color: #222;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+main {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#calculator {
+    width: 320px;
+    background: black;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#display {
+    background: #1a1a1a;
+    height: 120px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#prev-operand {
+    color: #888;
+    font-size: 1rem;
+    min-height: 1.5rem;
+}
+
+#curr-operand {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #333;
+}
+
+button {
+    height: 70px;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    background: #333;
+    color: white;
+    transition: filter 0.2s;
+}
+
+button:hover { filter: brightness(1.2); }
+button:active { filter: brightness(0.9); }
+
+button[data-type="operator"] {
+    background: #ff9f0a;
+    font-weight: bold;
+}
+
+button[data-type="clear"] {
+    background: #ff453a;
+    grid-column: span 2;
+}
+
+button[data-type="equals"] {
+    background: #30d158;
+    grid-column: span 2;
+}
+
+button[data-type="delete"] {
+    background: #5e5e5e;
+}
+
+#history {
+    width: 280px;
+    background: #f0f0f0;
+    color: #333;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+#history header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#clear-history-btn {
+    background: none;
+    border: 1px solid #ff453a;
+    color: #ff453a;
+    height: auto;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+#clear-history-btn:hover { background: #ff453a; color: white; }
+
+#history-list {
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+}
+
+#history-list li {
+    background: white;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#history-list li[data-status="empty"] {
+    background: none;
+    box-shadow: none;
+    color: #999;
+    justify-content: center;
+}
