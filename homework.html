@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Аналитический калькулятор</title>
+  <link rel="stylesheet" href="homework.css" />
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+
+    <div class="history-panel">
+      <h3>История операций</h3>
+      <div class="history" id="history"></div>
+      <button class="btn history-clear" id="clearHistory">Очистить историю</button>
+    </div>
+
+    <div class="buttons">
+      <!-- Первая строка -->
+      <button class="btn clear" data-action="clear">C</button>
+      <button class="btn operator" data-op="/">÷</button>
+      <button class="btn operator" data-op="*">×</button>
+      <button class="btn operator" data-op="-">−</button>
+
+      <!-- Вторая строка -->
+      <button class="btn digit" data-digit="7">7</button>
+      <button class="btn digit" data-digit="8">8</button>
+      <button class="btn digit" data-digit="9">9</button>
+      <button class="btn operator" data-op="+">+</button>
+
+      <!-- Третья строка -->
+      <button class="btn digit" data-digit="4">4</button>
+      <button class="btn digit" data-digit="5">5</button>
+      <button class="btn digit" data-digit="6">6</button>
+      <button class="btn equals" data-action="equals">=</button>
+
+      <!-- Четвёртая строка -->
+      <button class="btn digit" data-digit="1">1</button>
+      <button class="btn digit" data-digit="2">2</button>
+      <button class="btn digit" data-digit="3">3</button>
+
+      <!-- Пятая строка -->
+      <button class="btn digit zero" data-digit="0">0</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
