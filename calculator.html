@@ -7,14 +7,11 @@
 </head>
 <body>
     <div class="calculator">
-        <!-- Поле для вывода результата -->
         <input type="text" class="display" id="result" readonly>
 
-        <!-- Блок для отображения истории операций -->
         <div class="history" id="history"></div>
         <button class="clear-history" onclick="clearHistory()">Очистить историю</button>
 
-        <!-- Кнопки калькулятора -->
         <div class="buttons">
             <button class="number" onclick="appendToDisplay('7')">7</button>
             <button class="number" onclick="appendToDisplay('8')">8</button>
@@ -38,7 +35,6 @@
         </div>
     </div>
 
-    <!-- Подключение скрипта -->
     <script src="js/calculator.js"></script>
 </body>
 </html>
