@@ -1,172 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Занятие по HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналитический веб-калькулятор</title>
     <link rel="stylesheet" href="css/styles.css">
-
-    <script>
-      function showAlert() {
-        console.log("Вызвали функцию showAlert")
-      }
-
-
-    </script>
 </head>
 <body>
-<h1>1. Заголовки</h1>
-<h2>Это h2 - подзаголовок</h2>
-<h3>Это h3</h3>
-<h4>Это h4</h4>
-<h5>Это h5</h5>
-<h6>Это h6</h6>
-<hr>
-<h1>2. Абзацы и тексты</h1>
-<p>Это обычный абзац текста. Абзацы используются для построения текста и разделения частей документа</p>
-<p>Тэги <b>b</b> и <strong>strong</strong> делают текст жирным</p>
-<p>Тэги <i>i</i> и <em>em</em> делают текст курсивным</p>
-<p>Использование нескольких тэгов внутри <i><b>i и b</b></i> cделают текст курсивным и жирным</p>
-<hr>
-<h1>3. Ссылки</h1>
-<a href="https://google.com">Это ссылка на Google</a>
-<br><br>
-<a href="https://google.com" target="_blank">Это ссылка на Google в соседней вкладке</a>
-<hr>
-<h1>4. Картинки</h1>
-<img src="https://i.pinimg.com/236x/c8/cc/24/c8cc24bba37a25c009647b8875aae0e3.jpg">
-<img src="https://i.pinimg.com/236x/c8/cc/24/c8cc24bba37a25c009647b8875aae0e3.jpg">
-<hr>
-<h1>5. Списки</h1>
-<h3>Маркированные списки (ul)</h3>
-<ul>
-  <li>Яблоко</li>
-  <li>Банан</li>
-  <li>Апельсин</li>
-</ul>
+    <h1>Аналитический веб-калькулятор</h1>
+    <p class="subtitle">Выполняйте вычисления и отслеживайте историю операций</p>
 
-<h3>Нумерованные списки (ol)</h3>
-<ol>
-  <li>Первый шаг</li>
-  <li>Второй шаг</li>
-  <li>Третий шаг</li>
-</ol>
-<hr>
+    <div class="container">
+        <div class="calculator-container">
+            <div class="calculator">
+                <div class="display" id="display">0</div>
 
-<h1>6. Таблицы</h1>
-<table id="data-user-table">
-  <tr>
-    <th>ID</th>
-    <th>Имя</th>
-    <th>Возраст</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Аня</td>
-    <td>25</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Иван</td>
-    <td>29</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Олег</td>
-    <td>30</td>
-  </tr>
-</table>
-<hr>
+                <div class="buttons">
+                    <button class="btn clear" id="clear">AC</button>
+                    <button class="btn operation" id="divide">/</button>
+                    <button class="btn operation" id="multiply">*</button>
+                    <button class="btn operation" id="subtract">-</button>
 
-<h1>7. Поля ввода</h1>
-<label>Введите имя: </label>
-<input type="text" placeholder="Имя"><br><br>
-<label>Введите пароль: </label>
-<input type="password" placeholder="Пароль"><br><br>
-<label>Введите возраст</label>
-<input type="number" min="1" max="100"><br><br>
-<label>Введите дату</label>
-<input type="date"><br><br>
-<label>Выберите цвет:</label>
-<input type="color"><br><br>
-<label>Выберите файл:</label>
-<input type="file"><br><br>
-<label>Выберите пол:</label>
-<input type="radio" name="gender"> Мужчина
-<input type="radio" name="gender"> Женщина
-<br><br>
-<textarea>Напишите свой текст</textarea>
+                    <button class="btn number" id="seven">7</button>
+                    <button class="btn number" id="eight">8</button>
+                    <button class="btn number" id="nine">9</button>
+                    <button class="btn operation" id="add">+</button>
 
-<hr>
+                    <button class="btn number" id="four">4</button>
+                    <button class="btn number" id="five">5</button>
+                    <button class="btn number" id="six">6</button>
+                    <button class="btn equals" id="equals" style="grid-row: span 2;">=</button>
 
-<h1>8. Кнопки</h1>
-<button class="common-button">1-ая Обычная кнопка</button><br><br>
-<button class="common-button">2-ая Обычная кнопка</button><br><br>
-<button class="common-button">3-ая Обычная кнопка</button><br><br>
-<button disabled>Отключенная кнопка</button>
+                    <button class="btn number" id="one">1</button>
+                    <button class="btn number" id="two">2</button>
+                    <button class="btn number" id="three">3</button>
 
-<hr>
-<h1>9. Практика с JavaScrypt</h1>
-<button onclick="showAlert()">Показать всплывающее окно</button>
-<br>
-<h2>3. Изменить цвет блока</h2>
-<div id="color-box"></div>
-<button onclick="makeRed()">Сделай меня красным</button>
-<button onclick="makeGreen()">Сделай меня зеленым</button>
-<button onclick="makeBlue()">Сделай меня синим</button>
-<script>
-    function makeRed() {
-      document.getElementById("color-box").style.background = "red";
-      console.log("Сделать красным")
-    }
+                    <button class="btn number zero" id="zero">0</button>
+                    <button class="btn number" id="decimal">.</button>
+                </div>
+            </div>
+        </div>
 
-    function makeGreen() {
-      document.getElementById("color-box").style.background = "green";
-      console.log("Сделать зеленым")
-    }
+        <div class="history-container">
+            <div class="history-title">
+                <h2>История операций</h2>
+                <button class="clear-history" id="clear-history">Очистить историю</button>
+            </div>
 
-    function makeBlue() {
-      document.getElementById("color-box").style.background = "blue";
-      console.log("Сделать синим")
-    }
-</script>
-<hr>
-<h2>Изменить текст</h2>
-<p id="changeTextId">Это текст будет изменен</p>
-<button onclick="changeText()">Изменить текст</button>
-<script>
-  function changeText(){
-    document.getElementById("changeTextId").textContent = "Текст успешно изменен";
-  }
-</script>
-<hr>
-<h2>Вычисление суммы</h2>
-<input id="num1" type="number" placeholder="Число 1">
-<input id="num2" type="number" placeholder="Число 2">
-<button onclick="sum()">Посчитать сумму</button>
-<p id="result"></p>
+            <div class="history-list" id="history-list">
+                <div class="empty-history" id="empty-history">История операций пуста</div>
+            </div>
 
-<script>
-  function sum(){
-    let a = Number(document.getElementById("num1").value)
-    let b = Number(document.getElementById("num2").value)
+            <div class="analytics">
+                <h3>Аналитика операций</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-operations">0</div>
+                        <div class="stat-label">Всего операций</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="most-used-operation">-</div>
+                        <div class="stat-label">Частая операция</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="largest-result">0</div>
+                        <div class="stat-label">Наибольший результат</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    document.getElementById("result").textContent = "Результат: " + (a+b);
-  }
-</script>
-<hr>
+    <footer>
+        Веб-калькулятор с расширенными аналитическими функциями &copy; 2023
+    </footer>
 
-<h2>Отправка запроса на Python приложение</h2>
-<button id="load-products-btn">Загрузить продукты</button>
-<table id="products-table">
-  <tr>
-    <th>ID</th>
-    <th>Название</th>
-    <th>Цена</th>
-  </tr>
-</table>
-
-
-<script src="js/products.js"></script>
-
+    <script src="js/calculator.js"></script>
 </body>
 </html>
