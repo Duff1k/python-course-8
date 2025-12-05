@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>HW-8</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Comfortaa', cursive;
+        background: white; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        color: #333; 
+        min-height: 100vh;
+    }
+
+    h1 {
+        font-family: 'Orbitron', monospace;
+        margin-bottom: 10px;
+        font-size: 2.5rem;
+        color: #333;
+    }
+
+    .calculator {
+        width: 320px;
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        border: 1px solid #e0e0e0;
+    }
+
+    #display {
+        width: 100%;
+        font-family: 'Orbitron', monospace;
+        font-size: 28px;
+        padding: 15px;
+        height: 60px;
+        text-align: center;
+        border: 2px solid #e0e0e0;
+        background: #f9f9f9; 
+        border-radius: 10px;
+        margin-bottom: 20px;
+        color: #333;
+        letter-spacing: 2px;
+    }
+
+    .btn-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+
+    .btn {
+        font-family: 'Orbitron', monospace;
+        font-size: 24px;
+        padding: 18px 0;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+    }
+
+    .btn.backspace {
+        background: linear-gradient(145deg, #ff3333, #cc0000);
+    }
+
+    .btn.clear {
+        background: linear-gradient(145deg, #ff0000, #990000);
+    }
+
+    
+    .btn.number[data-val="7"] {
+        background: linear-gradient(145deg, #ff7700, #cc5500);
+    }
+
+    
+    .btn.number[data-val="8"] {
+        background: linear-gradient(145deg, #ffff00, #cccc00);
+        color: #333;
+    }
+
+    
+    .btn.number[data-val="9"] {
+        background: linear-gradient(145deg, #00ff00, #00cc00);
+        color: #000;
+    }
+
+    .btn.operator[data-val="/"] {
+        background: linear-gradient(145deg, #00ff88, #00cc66);
+        color: #000;
+    }
+
+    
+    .btn.number[data-val="4"] {
+        background: linear-gradient(145deg, #00ffff, #00cccc);
+        color: #000;
+    }
+
+    .btn.number[data-val="5"] {
+        background: linear-gradient(145deg, #00ccff, #0099cc);
+    }
+
+    
+    .btn.number[data-val="6"] {
+        background: linear-gradient(145deg, #0066ff, #0044cc);
+    }
+
+    .btn.operator[data-val="*"] {
+        background: linear-gradient(145deg, #3333ff, #0000cc);
+    }
+
+        .btn.number[data-val="1"] {
+        background: linear-gradient(145deg, #9900ff, #6600cc);
+    }
+
+    .btn.number[data-val="2"] {
+        background: linear-gradient(145deg, #cc00ff, #9900cc);
+    }
+
+    
+    .btn.number[data-val="3"] {
+        background: linear-gradient(145deg, #ff00ff, #cc00cc);
+    }
+
+    .btn.operator[data-val="-"] {
+        background: linear-gradient(145deg, #ff33cc, #cc0099);
+    }
+
+    
+    .btn.number[data-val="0"] {
+        background: linear-gradient(145deg, #ff4444, #cc2222);
+    }
+
+    .btn.number[data-val="."] {
+        background: linear-gradient(145deg, #ff8844, #cc6622);
+    }
+
+    
+    .btn.equals {
+        background: linear-gradient(145deg, #00cc66, #00994d);
+        font-weight: bold;
+        color: white;
+    }
+
+    .btn.operator[data-val="+"] {
+        background: linear-gradient(145deg, #8844ff, #6622cc);
+    }
+
+    
+    .history {
+        width: 320px;
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border: 1px solid #e0e0e0;
+    }
+
+    .history h2 {
+        font-family: 'Orbitron', monospace;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        color: #333;
+        text-align: center;
+    }
+
+    #historyList {
+        max-height: 200px;
+        overflow-y: auto;
+        padding-left: 15px;
+        font-family: 'Comfortaa', cursive;
+        color: #666;
+    }
+
+    .history-btn {
+        margin-top: 15px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(145deg, #6666ff, #4444cc);
+        color: white;
+        cursor: pointer;
+        font-family: 'Orbitron', monospace;
+        font-weight: bold;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        #historyList::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #historyList::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 4px;
+    }
+
+    #historyList::-webkit-scrollbar-thumb {
+        background: #cccccc;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+
+<h1>HW-8</h1>
+
+<div class="calculator">
+    <input id="display" type="text" readonly>
+
+    <div class="btn-grid">
+        <!-- Кнопки с цветами радуги -->
+        <button class="btn backspace" data-action="backspace">⌫</button>
+        <button class="btn clear" style="grid-column: span 3">C</button>
+
+        <button class="btn number" data-val="7">7</button>
+        <button class="btn number" data-val="8">8</button>
+        <button class="btn number" data-val="9">9</button>
+        <button class="btn operator" data-val="/">÷</button>
+
+        <button class="btn number" data-val="4">4</button>
+        <button class="btn number" data-val="5">5</button>
+        <button class="btn number" data-val="6">6</button>
+        <button class="btn operator" data-val="*">×</button>
+
+        <button class="btn number" data-val="1">1</button>
+        <button class="btn number" data-val="2">2</button>
+        <button class="btn number" data-val="3">3</button>
+        <button class="btn operator" data-val="-">−</button>
+
+        <button class="btn number" data-val="0">0</button>
+        <button class="btn number" data-val=".">.</button>
+        <button class="btn equals">=</button>
+        <button class="btn operator" data-val="+">+</button>
+    </div>
+</div>
+
+<div class="history">
+    <h2>История Операций</h2>
+    <ul id="historyList"></ul>
+    <button class="history-btn" id="clearHistory">Очистить Историю</button>
+</div>
+
+<script>
+    const display = document.getElementById("display");
+    const historyList = document.getElementById("historyList");
+    const buttons = document.querySelectorAll(".btn");
+    let current = "";
+
+    function updateDisplay() {
+        display.value = current;
+    }
+
+    function addToHistory(expr, result) {
+        const li = document.createElement("li");
+        li.textContent = `${expr} = ${result}`;
+        historyList.appendChild(li);
+    }
+
+    function clearHistory() {
+        historyList.innerHTML = "";
+    }
+
+    document.getElementById("clearHistory").onclick = clearHistory;
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const value = btn.getAttribute("data-val");
+            const action = btn.getAttribute("data-action");
+
+            if (action === "backspace") {
+                current = current.slice(0, -1);
+                updateDisplay();
+                return;
+            }
+
+            if (btn.classList.contains("number") || btn.classList.contains("operator")) {
+                current += value;
+                updateDisplay();
+                return;
+            }
+
+            if (btn.classList.contains("clear")) {
+                current = "";
+                updateDisplay();
+                return;
+            }
+
+            if (btn.classList.contains("equals")) {
+                if (!current) return;
+
+                try {
+                    const result = eval(current);
+                    addToHistory(current, result);
+                    current = String(result);
+                } catch {
+                    current = "Ошибка";
+                }
+                updateDisplay();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
