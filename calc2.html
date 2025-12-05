@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">Калькулятор</div>
+
+        <div class="display-container">
+            <div class="display" id="display">0</div>
+        </div>
+
+        <div class="error-message" id="error-message"></div>
+
+        <div class="buttons">
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn" data-value="/">/</button>
+
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn" data-value="*">*</button>
+
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn" data-value="-">-</button>
+
+            <button class="btn" data-value="0">0</button>
+            <button class="btn btn-clear" id="clear">C</button>
+            <button class="btn btn-equals" id="equals">=</button>
+            <button class="btn" data-value="+">+</button>
+        </div>
+    </div>
+
+    <div class="history-container" id="history-container">
+        <div class="history-header">
+            <span>История вычислений</span>
+            <button class="toggle-history" id="clear-history">Очистить</button>
+        </div>
+        <div class="history-content" id="history-content">
+            <div class="no-history">История вычислений пуста</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 15px; text-align: center;">
+        <button class="btn" id="toggle-history-btn" style="font-size: 16px; padding: 10px 20px;">Показать историю</button>
+    </div>
+
+    <script src="calc_script.js"></script>
+</body>
+</html>
