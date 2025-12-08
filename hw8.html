@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="hw8.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-title">Калькулятор</div>
+
+        <div class="display" id="display">0</div>
+
+        <div class="buttons-grid">
+            <button class="btn btn-number" onclick="addDigit(7)">7</button>
+            <button class="btn btn-number" onclick="addDigit(8)">8</button>
+            <button class="btn btn-number" onclick="addDigit(9)">9</button>
+            <button class="btn btn-operation" onclick="addOperation('+')">+</button>
+
+            <button class="btn btn-number" onclick="addDigit(4)">4</button>
+            <button class="btn btn-number" onclick="addDigit(5)">5</button>
+            <button class="btn btn-number" onclick="addDigit(6)">6</button>
+            <button class="btn btn-operation" onclick="addOperation('-')">-</button>
+
+            <button class="btn btn-number" onclick="addDigit(1)">1</button>
+            <button class="btn btn-number" onclick="addDigit(2)">2</button>
+            <button class="btn btn-number" onclick="addDigit(3)">3</button>
+            <button class="btn btn-operation" onclick="addOperation('*')">*</button>
+
+            <button class="btn btn-number" onclick="addDigit(0)">0</button>
+            <button class="btn btn-number" onclick="addDecimal()">.</button>
+            <button class="btn btn-control" onclick="calculate()">=</button>
+            <button class="btn btn-operation" onclick="addOperation('/')">/</button>
+
+            <button class="btn btn-control" onclick="clearAll()">C</button>
+            <button class="btn btn-control" onclick="clearEntry()">⌫</button>
+            <button class="btn btn-control" onclick="changeSign()">±</button>
+            <button class="btn btn-control" onclick="percentage()">%</button>
+        </div>
+
+        <div class="history-section">
+            <div class="history-title">История</div>
+            <div id="history"></div>
+            <button class="clear-history-btn" onclick="clearHistory()">Очистить историю</button>
+        </div>
+    </div>
+
+    <script src="hw8.js"></script>
+</body>
+</html>
